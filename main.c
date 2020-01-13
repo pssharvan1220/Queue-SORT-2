@@ -139,6 +139,35 @@ void LinearSearch(stack1 *S1,int x)
     }
 }
 
+void Filehandling(stack1 *S1)
+{
+    int i;
+    FILE *filePointer ;
+    char dataToBeWritten[50]
+        = "GeeksforGeeks-A Computer Science Portal for Geeks";
+    filePointer = fopen("Details.txt", "w") ;
+    if ( filePointer == NULL )
+    {
+        printf( "Details.txt file failed to open." ) ;
+    }
+    else
+    {
+        printf("The file is now opened.\n") ;
+        if ( strlen (  dataToBeWritten  ) > 0 )
+        {
+            for(i=0;i<count;i++){
+                fprintf(filePointer, "%d \n",S1->data1[i]);
+            }
+            fprintf(filePointer,"\nNumber of Elements: %d",count);
+        }
+        fclose(filePointer) ;
+
+        printf("Data successfully written in file Details.txt\n");
+        printf("The file is now closed.\n") ;
+    }
+
+}
+
 void main()
 {
     stack1 S1;
@@ -168,5 +197,7 @@ void main()
     printf("\n\n");
     printf("Enter an Element to search: ");scanf("%d",&search);
     LinearSearch(&S1,search);
+
+    Filehandling(&S1);
 
 }
