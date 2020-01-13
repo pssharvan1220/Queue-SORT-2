@@ -129,13 +129,14 @@ void BubbleSort(stack1 *S1)
         printf("%d ",S1->data1[i]);}
 }
 
-int LinearSearch(int arr[], int n, int x)
+void LinearSearch(stack1 *S1,int x)
 {
     int i;
-    for (i = 0; i < n; i++)
-        if (arr[i] == x)
-            return i;
-    return -1;
+    for (i = 0; i < count; i++){
+        if(S1->data1[i] == x){
+            printf("\nSearched Element in %d th position of the queue\n\n",i+1);
+        }
+    }
 }
 
 void main()
@@ -152,7 +153,7 @@ void main()
     EnQueue(&S1,64);
     EnQueue(&S1,87);
     EnQueue(&S1,52);
-    EnQueue(&S1,94);
+    EnQueue(&S1,64);
     EnQueue(&S1,33);
     printf("Queue Is:\n");
     DisplayQueue(&S1);
@@ -165,14 +166,7 @@ void main()
     printf("\n\nSorted Queue Is:\n");
     BubbleSort(&S1);
     printf("\n\n");
-
-    /*
     printf("Enter an Element to search: ");scanf("%d",&search);
-    int result=LinearSearch(S1.data1,count,search);
-    if (result != -1)
-        printf("Element found at index %d", result);
-    else
-        printf("Element not found.");
-    */
-    //Can you find what is the error in this Searching Process?????
+    LinearSearch(&S1,search);
+
 }
