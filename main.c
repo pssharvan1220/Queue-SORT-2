@@ -143,8 +143,6 @@ void Filehandling(stack1 *S1)
 {
     int i;
     FILE *filePointer ;
-    char dataToBeWritten[50]
-        = "GeeksforGeeks-A Computer Science Portal for Geeks";
     filePointer = fopen("Details.txt", "w") ;
     if ( filePointer == NULL )
     {
@@ -153,13 +151,10 @@ void Filehandling(stack1 *S1)
     else
     {
         printf("The file is now opened.\n") ;
-        if ( strlen (  dataToBeWritten  ) > 0 )
-        {
-            for(i=0;i<count;i++){
-                fprintf(filePointer, "%d \n",S1->data1[i]);
-            }
-            fprintf(filePointer,"\nNumber of Elements: %d",count);
+        for(i=0;i<count;i++){
+            fprintf(filePointer, "%d \n",S1->data1[i]);
         }
+        fprintf(filePointer,"\nNumber of Elements: %d",count);
         fclose(filePointer) ;
 
         printf("Data successfully written in file Details.txt\n");
